@@ -1,0 +1,26 @@
+{
+  "name": "bookreservation",
+  "version": "1.0.0",
+  "description": "App to make a book reservation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandrajana/bookreservation.git"
+  },
+  "author": "Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anandrajana/bookreservation/issues"
+  },
+  "homepage": "https://github.com/anandrajana/bookreservation#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  }
+}
