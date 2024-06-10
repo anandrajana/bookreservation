@@ -6,6 +6,7 @@ const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const reservationRoutes = require('./routes/reservationRoutes');
 const initializeData = require('./initData');
+const auth = require('./middleware/auth');
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/book_reservation').then(() => {
 });;
 
 app.use('/users', userRoutes);
+app.use(auth);
 app.use('/books', bookRoutes);
 app.use('/reservations', reservationRoutes);
 

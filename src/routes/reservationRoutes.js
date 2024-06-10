@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { userId, bookId, reservedFrom, reservedTo } = req.body;
+    const { bookId, reservedFrom, reservedTo } = req.body;
 
     const book = await Book.findById(bookId);
     if (!book || !book.available) {
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
     }
 
     const reservation = new Reservation({
-      user: userId,
+      user: req.user._id,
       book: bookId,
       reservedFrom,
       reservedTo
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     book.available = false;
     await book.save();
 
-    const user = await User.findById(userId);
+    const user = await User.findById(req.user._id);
     user.reservationHistory.push(reservation._id);
     await user.save();
 
@@ -37,9 +37,9 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:userId', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const reservations = await Reservation.find({ user: req.params.userId }).populate('book');
+    const reservations = await Reservation.find({ user: req.user._id }).populate('book');
     res.send(reservations);
   } catch (err) {
     res.status(500).send({ error: err.message });

@@ -22,9 +22,9 @@ async function initializeData() {
         reservationHistory: [],
       },
     ]);
-    console.log('Users initialized');
+    console.log('Test Users initialized');
   } else {
-    console.log('Users already exist');
+    console.log('Test Users already exist');
   }
 
   // Check and insert books
@@ -35,12 +35,17 @@ async function initializeData() {
       { title: 'Book 2', author: 'Author 2' , description: 'Description 2', available: true},
       { title: 'Book 3', author: 'Author 3' , description: 'Description 3', available: true},
       { title: 'Book 4', author: 'Author 4' , description: 'Description 4', available: true},
-      { title: 'Book 5', author: 'Author 5' , description: 'Description 5', available: true}
+      { title: 'Book 5', author: 'Author 5' , description: 'Description 5', available: true},
+      { title: 'Book 6', author: 'Author 6' , description: 'Description 6', available: true},
+      { title: 'Book 7', author: 'Author 7' , description: 'Description 7', available: true},
+      { title: 'Book 8', author: 'Author 8' , description: 'Description 8', available: true},
+      { title: 'Book 9', author: 'Author 9' , description: 'Description 9', available: true},
+      { title: 'Book 10', author: 'Author 10' , description: 'Description 10', available: true}
     ];
     await Book.insertMany(books);
-    console.log('Books initialized');
+    console.log('Test Books initialized');
   } else {
-    console.log('Books already exist');
+    console.log('Test Books already exist');
   }
 }
 
